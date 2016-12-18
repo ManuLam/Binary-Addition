@@ -1,0 +1,29 @@
+// Reverse-An-Array (Given a certain Array)
+// Reverse the order of any given array...
+
+public class ReverseArray {
+public static void main(String[]args) {
+	int[] array = new int[]{1,3,5,4,2};		    // Given Example array
+	int length = array.length-1;
+	int temp = 0;
+
+	for(int i=0; i<=array.length-1; i++) {		// Printing out the given array
+	System.out.print(array[i]+" ");
+		}										// From 1 3 5 4 2... we want 
+												// 	>>> 2 4 5 3 1
+
+	for(int i=0; i<=Math.ceil((array.length-1)/2); i++) {		// Creating (array.length-1)/2 because it only needs half the array to reverse everything
+			temp = array[i];
+			array[i] = array[length];		// Adding a temp integer to hold the numbers being swapped.
+			array[length] = temp;				// The first value is stored as temp and then changed with the last position, the Last value is then changed with temp
+			length--;
+		}
+
+	System.out.println();
+
+	for(int i=0; i<=array.length-1; i++) {		// Prints the entire reversed array 
+	System.out.print(array[i]+" ");
+	}
+
+    }
+}
