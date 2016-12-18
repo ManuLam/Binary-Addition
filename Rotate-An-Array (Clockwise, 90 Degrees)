@@ -21,7 +21,7 @@ public static void main(String[]args) {	/* 1 2 3  >	7 4 1
 
 		System.out.println();
 
-//	First Column(0), First Row(0) = First Column(0), Last row(n-1)  ..... array2[i][j] = array(n-(j+1))[i]
+//	First Row(i), First Column(j) = Last Row(n-(j+1), First Column(i)  ..... array2[i][j] = array(n-(j+1))[i]
 
 		for(int i=0; i<=n-1; i++) {
 		for(int j=0; j<=n-1; j++) {
