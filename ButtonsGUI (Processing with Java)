@@ -1,0 +1,41 @@
+// ButtonsGUI (Processing with Java)
+// A program that is useful to set buttons to the required outcome (With ActionListeners)
+
+import javax.swing.*;        // Importing java files that is required to make the GUI 
+import java.awt.*;
+import java.lang.*;
+import java.awt.event.*;
+
+void setup() {
+ framework();           // Displaying the GUI
+}
+
+void framework() {                                // Setting a frame/panel and two buttons on it
+    JFrame frame = new JFrame("On/Off Switch");
+    JPanel panel = new JPanel();
+    frame.add(panel);
+    frame.setSize(50,125);
+    JButton button1 = new JButton("On");
+    JButton button2 = new JButton("Off");
+    panel.add(button1);
+    panel.add(button2);
+    button1.addActionListener(new Action1());      // allowing the button1 to have an action
+    button2.addActionListener(new Action2());      // allowing the button2 to have an action
+    frame.setVisible(true);
+    panel.setVisible(true);
+    button1.setVisible(true);
+    button2.setVisible(true);
+    frame.setLocation(378,500);
+}
+
+      class Action1 implements ActionListener{                // Creating a class that recognises the function of the button
+      public void actionPerformed(ActionEvent e){      
+      println("The Switch is On");                            // If "On" is clicked, it displays "The Switch is On"
+      }  
+    }
+    
+     class Action2 implements ActionListener{                // Creating a class that recognises the function of the button
+      public void actionPerformed(ActionEvent e){
+      println("The Switch is Off");                          // If "Off" is clicked, it displays "The Switch is Off"
+      }
+    }
