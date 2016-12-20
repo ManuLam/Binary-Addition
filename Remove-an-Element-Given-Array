@@ -1,0 +1,41 @@
+// The only reason this code is long, is the fact that I am using an actual normal Array, with the inclusion of ArrayList as a tool.
+// This code would had been much shorter if I decided to use ArrayLists from the start. (Question Preference!)
+
+import java.util.Scanner;					// Imported a Scanner for user input
+import java.util.ArrayList;					// Importated an ArrayList for easy removability
+import java.util.Random;					// Imported a random number generator
+
+public class RemoveAnElementGivenArray {		// Remove a Given Element in a Given array.
+	static Random ranNum = new Random();
+	static Scanner input = new Scanner(System.in);
+	static ArrayList<Integer> remove = new ArrayList <Integer>();
+	static ArrayList<Integer> temp = new ArrayList <Integer>();
+	static int[] arrayRemove = new int[1];
+
+public static void main(String[]args) {
+	System.out.print("Enter array size: ");				// For array size
+	int n = input.nextInt();
+	System.out.print("\nEnter number to be removed: ");	// Number to be removed
+	int g = input.nextInt();
+	int[] array = new int[n];
+
+		System.out.print("Array Given: ");
+	for(int i=0; i<=array.length-1; i++) {			// Loop to print out all the numbers in the array
+		array[i] = ranNum.nextInt(10);
+		remove.add(array[i]);
+		System.out.print(array[i]+" ");
+		}
+		temp.add(ArrayRe(g));						// Using a temp ArrayList to add the number to be removed
+		remove.removeAll(temp);
+
+		System.out.println("\nArray after removal: "+remove);			//print out all the numbers in the array after remove
+	}
+
+    public static int ArrayRe(int x) {			// Created a method to remove a certain element
+    	arrayRemove[0] = x;
+    	return (arrayRemove[0]);
+    }
+
+}
+
+
