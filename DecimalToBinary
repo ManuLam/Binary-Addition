@@ -1,4 +1,5 @@
 // DecimalToBinary (Java)
+// Logic and Coded for Interview practice
 // A simple converter from a decimal number to a binary format
 
 import java.util.Scanner;
@@ -9,6 +10,9 @@ public static void main(String[]args) {
 	int start = dec;
 	String temp = "";		// Creating a temp String
 	String bin = "";		// Produced after reversing the temp
+
+	// The logic behind this. Given an example of 10, divide it by 2. so 5 is present then add 0 to the String since no remainders and repeat with 5 divide by 2
+	// 5 / 2 gives 2.5 which has remainer of .5 , so add 1 to the String and repeat until the String "0101" is created then reverse it in terms on Binary format
 
 
 	while(start>=1) {		// Creating a loop until it reaches 1
@@ -23,7 +27,7 @@ public static void main(String[]args) {
 	}
 
 	int end = temp.length()-1;
-	while(end>=0) {	
+	while(end>=0) {
 		bin += temp.charAt(end);		// Reversing the String
 		end--;
 		}
