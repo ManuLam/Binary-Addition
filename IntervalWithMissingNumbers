@@ -1,0 +1,43 @@
+// Interval with Missing Numbers printed (Java)
+// This question may be done in many ways but I decided to use a complex solution which is robust
+
+import java.util.*;
+public class IntervalWithMissingNumbers {
+public static void main(String[]args) {
+	Scanner input = new Scanner(System.in);
+	Random r = new Random();
+	int n = input.nextInt();
+	int[] numbers = new int[100];
+	int[] array = new int[n];
+	ArrayList<Integer> ary = new ArrayList<Integer>(); // Must use <Integer>
+	int k=1;
+
+	for(int i=0; i<100; i++) {			// Storing an array with numbers from 1 to 100
+	numbers[i] = k;
+	k++;
+	}
+
+	for(int i=0; i<n; i++) {
+
+		array[i] = numbers[r.nextInt(101)];			// Randomising the numbers from the array excluding 0, making it 1 to 100 inclusive
+		System.out.print(array[i] + " ");
+		ary.add(array[i]);							// Forming the arrayList
+	}
+
+	System.out.println();
+	Collections.sort(ary);			// Must use "Collections.sort() to sort an ArrayList... Also import in java.util.*;
+	System.out.println(ary);		// Sorted an arraylist in order
+
+	for(int i=1; i<=100; i++) {
+		int p=0;
+	for(int j=0; j<n; j++) {		// If the number is not the same, the counter goes up
+		if(i!=array[j]) {
+			p++;
+			}
+		if(p>=n) {					// If the counter goes through the entire array without similarity then it is printed out
+			System.out.print(i+" ");	// Prints out all the elements which are not inside the array
+			  	  }
+			    }
+	  	  }
+    }
+}
