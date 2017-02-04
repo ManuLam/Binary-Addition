@@ -1,0 +1,34 @@
+// DecimalToBinary (Java)
+// A simple converter from a decimal number to a binary format
+
+import java.util.Scanner;
+public class DecimalToBinary {
+public static void main(String[]args) {
+	Scanner input = new Scanner(System.in);
+	int dec = input.nextInt();
+	int start = dec;
+	String temp = "";		// Creating a temp String
+	String bin = "";		// Produced after reversing the temp
+
+
+	while(start>=1) {		// Creating a loop until it reaches 1
+	if(start%2==0) {
+	temp += "0";
+		}					// Simple logic behind the number being divisble by 2(No remains) or not
+	else{
+	temp += "1";
+		}
+
+	start /= 2;				// Divide by 2
+	}
+
+	int end = temp.length()-1;
+	while(end>=0) {	
+		bin += temp.charAt(end);		// Reversing the String
+		end--;
+		}
+
+		System.out.println(bin);		// Prints out the Binary format, I have tried decimal "999" and received outcome "1111100111" which is correct
+
+	}
+}
