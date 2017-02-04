@@ -1,0 +1,34 @@
+// BinaryToDecimal (Java)
+// Logic and Coded for Interview practice
+// A simple converter from a binary format to a decimal number
+
+import java.util.Scanner;
+public class BinaryToDecimal {
+public static void main(String[]args) {
+	Scanner input = new Scanner(System.in);
+	String bin = input.nextLine();
+	String revBin = "";
+	int dec = 0;
+
+	// lets have an example of 101 , known as 5 or .. 1010  known as 10
+	// 1*2^0 + 0*2^1 + 1*2*2 , 1 + 0 + 4 = 5  AND 	FIRSTLY, FLIP THE BINARY NUMBER	so that 1010 > 0101   then do 0*2^0 + 1*2^1 + 0*2^2 + 1*2^3  , 0+2+8 = 10
+
+	//I'd like to reverse the String before implementing the logic in code
+
+	int end = bin.length()-1;
+	while(end>=0) {
+		revBin += bin.charAt(end);
+
+		end--;
+	}
+
+	// Now the Logic behind this , Working with "Character.getNumericValue(revBin.charAt(pow))) * Math.pow(2 , n(Which starts with 0... incresing)))" is added onto a sum which is our decimal number
+	int end1 = bin.length()-1;
+	for(int pow=0; pow<=end1; pow++) {
+		dec += Character.getNumericValue(revBin.charAt(pow))*Math.pow(2,pow);	// casting the character with "Character.getNumericValue()" then applying logic that adds the sum of the elements in Binary to Decimal
+			}
+
+	System.out.println(dec);	// Prints out the answer, I have tested this program with "1111100111" which returns "999" therefore the program is correct. I have also tested this with my other converter "DecimalToBinary"
+
+	}
+}
