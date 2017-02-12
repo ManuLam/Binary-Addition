@@ -16,7 +16,7 @@ public static void main(String[]args) {
 		int start = 0 , fin = array.length-1;
 
 		while(start<fin) {						// Finding difference between i and i+1 and printing within a sorted array
-			for(int k=array[start]+1; k<array[start+1]-1; k++) {
+			for(int k=array[start]+1; k<array[start+1]; k++) {
 				System.out.printf("%s ",k);
 				}
 				start++;
