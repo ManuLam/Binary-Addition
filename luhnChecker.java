@@ -9,7 +9,7 @@ It also gives the next check digit to be appended at the end of source sequence 
 
 import java.util.Scanner;
 
-public class lunhchecker {
+public class luhnChecker {
 public static void main(String[]args) {
 	Scanner in = new Scanner(System.in);
 	int x = in.nextInt();
