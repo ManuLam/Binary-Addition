@@ -6,7 +6,7 @@
  *as well as almost all transpositions of adjacent digits. It will not, however, detect transposition of the two-digit sequence 09 to 90 (or vice versa).
 The calculator below gives Luhn checksum of the given digit sequence. The sequence is considered valid if the checksum mod 10 equals to zero.
 It also gives the next check digit to be appended at the end of source sequence to form valid number according Luhn algorithm. */
-
+//371449635398431 proves valid
 import java.util.Scanner;
 
 public class luhnCheckerString {
@@ -16,10 +16,13 @@ public static void main(String[]args) {
     	int count = 0 , sum = 0;
 
     	for(int i = s.length()-1; i >= 0; i--) {
-    		if(count%2==0 || count == 0) {
+    		if(count%2!=0 && count != 0) {
     			sum += value(Character.getNumericValue(s.charAt(i)));
     		}
+	 	    else if(count%2==0) {
     		sum += Character.getNumericValue(s.charAt(i));
+			}
+    		count++;
     	}
 
 	if(sum%10==0) System.out.println(sum+" % 10 = "+sum%10+" is valid");
