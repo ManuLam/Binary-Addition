@@ -1,0 +1,17 @@
+import collections
+total,a = 0, {0:1}
+b = [int(input()) for _ in range(1025)]
+print(b)
+
+F = True
+while(F):
+  for i in range(1025):
+    total += b[i]
+
+    if total not in a:
+      a[total] = 1
+
+    else:
+      print(total,"========")
+      F = False
+      break
