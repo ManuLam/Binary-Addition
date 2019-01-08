@@ -1,0 +1,53 @@
+'''two,three = 0,0
+
+for i in range(250):
+  a = {}
+  th,tw = False,False
+  s = input()
+
+  for c in s:
+    if c not in a:
+      a[c] = 1
+    else:
+      a[c] += 1
+  
+  for x in a:
+    if a[x] == 3:
+      th = True
+
+    if a[x] == 2:
+      tw = True
+  
+  if th:
+    three += 1
+  if tw:
+    two += 1
+
+print(two*three)
+'''
+size = 250
+import collections
+a = [input() for _ in range(size)]
+final = {}
+
+for i in range(size):
+  b = {}
+  for j in range(26):
+    s = ''.join(a[i][0:j])+ ''.join(a[i][j+1:len(a[i])])
+
+    if s not in b:
+      b[s] = 1
+
+    else:
+      b[s] += 1
+  
+  c = collections.Counter(b).most_common()
+
+  for val,key in c:
+    if val not in final:
+      final[val] = 1
+    else:
+      final[val] += 1
+
+print(collections.Counter(final).most_common(1))
+print(len(final))
