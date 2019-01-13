@@ -1,0 +1,18 @@
+q5
+s = input()
+alpha = [x for x in 'abcdefghijklmnopqrstuvwxyz']
+low = 99999
+
+for x in alpha:
+  a = []
+  ns = s.replace(x, '').replace(x.swapcase(), '')
+
+  for i in range(len(ns)):
+    if a and a[-1] == ns[i].swapcase():
+      a.pop()
+    else:
+      a.append(ns[i])
+
+  low = min(low, len(a))
+
+print(low)
