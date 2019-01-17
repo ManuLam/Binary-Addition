@@ -1,0 +1,46 @@
+from collections import Counter
+
+manhattan_dist = lambda x1,y1,x2,y2: abs(x2 - x1) + abs(y2 - y1)
+
+a = {}
+points = [input().split(',') for _ in range(50)]
+infPoints = []
+c = 0
+
+hx = max(int(p[0]) for p in points) + 1
+hy = max(int(p[1]) for p in points) + 1
+lx = min(int(p[0]) for p in points)
+ly = min(int(p[1]) for p in points)
+
+for x1 in range(lx, hx):
+  for y1 in range(ly, hy):
+    dist = [manhattan_dist(x1, y1, int(points[i][0]), int((points[i][1]))) for i in range(len(points))]
+    minD = min(dist)
+    dist_target = sum(dist)
+
+    if dist_target < 10000:
+      c += 1
+
+    '''
+    if not dist.count(minD) > 1:
+      for i in range(len(points)):
+        if manhattan_dist(x1, y1, int(points[i][0]), int((points[i][1]))) == minD:
+          if i in a:
+            a[i] += 1
+          else:
+            a[i] = 1
+
+
+      if (x1 == hx or x1 == lx) or (y1 == hx or y1 == ly):
+        for i in range(len(points)):
+          if manhattan_dist(x1, y1, int(points[i][0]), int((points[i][1]))) == minD:
+            infPoints.append(i) #add the inf of closest point
+'''
+
+for x in infPoints:
+  if x in a:
+    del a[x]
+
+print(a)
+print(dist_target)
+print(c)
