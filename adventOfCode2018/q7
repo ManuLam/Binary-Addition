@@ -1,0 +1,35 @@
+import sys
+import collections
+from collections import OrderedDict
+
+s = [x.strip('\n') for x in open('file.txt')]
+d = {i[5]:'' for i in s}
+lastElement = [i[-12] for i in s if i[-12] not in d]
+print(len(d))
+
+for i in s:
+  if i[-12] in d:
+    d[i[-12]] += i[5]
+
+order = ''
+
+while len(d) >= 1:
+  d = OrderedDict(sorted(d.items()))
+  print(d)
+  for i in d:
+    if d[i] == '':
+      del d[i]
+      order += i
+      for j in d:
+        d[j] = d[j].replace(i,'')
+      break
+
+#PVOSHKBNWLURZCIDAGMEFXYTJ
+#OKBNLPHCSVWAIRDGUZEFMXYTJ
+#OKBNLPHCSVWAIRDGUZEFMXYTJQ
+
+order += lastElement[0]
+print(len(order))
+print(order)
+
+#lexi
